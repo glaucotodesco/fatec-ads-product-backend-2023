@@ -1,0 +1,19 @@
+<div class="display-6 bg-secondary text-center text-light p-3">
+  Cadastro de Produtos
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <th scope="row">{{p.id}}</th>
+      <td>{{p.name}}</td>
+      <td>{{p.price}}</td>
+    </tr>
+  </tbody>
+</table>
