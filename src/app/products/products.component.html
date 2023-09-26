@@ -3,14 +3,31 @@
 </div>
 
 <form [formGroup]="formGroupProduct">
-
   <div class="mb-3">
     <label for="name" class="form-label">Nome:</label>
-    <input type="text" class="form-control" id="name" formControlName="name" name="name">
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      formControlName="name"
+      name="name"
+    />
+    <div *ngIf="submitted && name.hasError('required')">
+      <small class="text-danger">*O nome é obrigatório!</small>
+    </div>
+    <div *ngIf="submitted && name.hasError('minlength')">
+      <small class="text-danger">*O nome tem tamanho mínimo de 3 caracteres!</small>
+    </div>
   </div>
   <div class="mb-3">
     <label for="price" class="form-label">Preço:</label>
-    <input type="text" class="form-control" id="price" formControlName="price" name="price">
+    <input type="text"  class="form-control"  id="price"  formControlName="price" name="price" />
+    <div *ngIf="submitted && price.hasError('required')">
+      <small class="text-danger">*O preço é obrigatório!</small>
+    </div>
+    <div *ngIf="submitted && price.hasError('min')">
+      <small class="text-danger">*O preço tem o valor mínomo de 0!</small>
+    </div>
   </div>
   <button class="btn btn-primary me-2" (click)="save()">Salvar</button>
   <button class="btn btn-primary" (click)="cancel()">Cancelar</button>
@@ -27,12 +44,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let p of products">
-      <th scope="row" class="col-1">{{p.id}}</th>
-      <td class="col-6">{{p.name}}</td>
-      <td class="col-3">{{p.price}}</td>
+      <th scope="row" class="col-1">{{ p.id }}</th>
+      <td class="col-6">{{ p.name }}</td>
+      <td class="col-3">{{ p.price }}</td>
       <td class="text-end col-2">
-          <button class="btn btn-danger me-2"  (click)="delete(p)">Remover</button>
-          <button class="btn btn-success" (click)="edit(p)">Editar</button>
+        <button class="btn btn-danger me-2" (click)="delete(p)">Remover</button>
+        <button class="btn btn-success" (click)="edit(p)">Editar</button>
       </td>
     </tr>
   </tbody>

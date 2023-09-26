@@ -6,11 +6,15 @@ import { ProductsComponent } from './products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ClientsComponent } from './clients/clients.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    ProductsComponent,
+    NavbarComponent,
+    ClientsComponent
   ],
   imports: [
     BrowserModule,
